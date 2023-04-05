@@ -65,9 +65,9 @@ process METAPHLAN {
     
 
       #check if unpaired/single reads are present
-      
+      #at least 4 lines in unpaired_clean fastq
       n_r=\$(zcat ${unpaired_clean} | head -n 4 | awk 'END {print NR}')
-      if [ \$n_r -ne 4 ]; then
+      if [ \$n_r -eq 4 ]; then
         zcat ${unpaired_clean} > $phlan_single
 
         metaphlan $phlan_left,$phlan_right,$phlan_single \

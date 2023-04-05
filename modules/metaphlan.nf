@@ -63,6 +63,7 @@ process METAPHLAN {
       zcat ${left_clean} > $phlan_left
       zcat ${right_clean} > $phlan_right
     
+
       #check if unpaired/single reads are present
       
       n_r=\$(zcat ${unpaired_clean} | head -n 4 | awk 'END {print NR}')
